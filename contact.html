@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Contactează Neon Studio pentru consultanță, sesiuni de producție sau întrebări despre pluginuri.">
+    <title>Neon Studio - Contact & Programare</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body id="top">
+
+<header>
+    <div class="container header-content">
+        <a href="index.html" class="logo">NEON STUDIO</a>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="portofoliu.html">Portofoliu</a></li>
+                <li><a href="plugins.html">Plugins</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Meniu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Contactează-ne</h2>
+            <p class="section-subtitle">
+                Suntem aici să te ajutăm să-ți aduci muzica la următorul nivel.
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Informații de Contact</h3>
+                    <p>Email: contact@neonstudio.ro</p>
+                    <p>Discord: neon.studio</p>
+                    <p>Locație: București, România (sesiuni online/disponibile)</p>
+                    <p>Răspundem în 24-48h</p>
+                </div>
+
+                <div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nume complet</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subiect</label>
+                            <select id="subject" required>
+                                <option value="">-- Alege --</option>
+                                <option value="consultanta">Consultanță Producție</option>
+                                <option value="sesiune">Programare Sesiune</option>
+                                <option value="pluginuri">Întrebare despre Pluginuri</option>
+                                <option value="altceva">Altceva</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesaj</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Trimite Mesajul</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: rgba(10, 15, 30, 0.5);">
+        <div class="container">
+            <h2 class="section-title">Programează o Sesiune de Producție</h2>
+            <p class="section-subtitle">
+                Sesiuni individuale de 60 sau 90 de minute pentru a lucra la proiectul tău.
+            </p>
+            <div class="appointment-info">
+                <h3>Ce oferim:</h3>
+                <p>Analiza structurii beat-ului tău</p>
+                <p>Optimizare mixaj & mastering</p>
+                <p>Sugestii de sunete și aranjamente</p>
+                <p>Workflow eficient în DAW-ul tău (Ableton, FL Studio, Logic, etc.)</p>
+                <p style="margin-top: 20px; color: var(--neon-cyan); font-weight: 600;">
+                    Preț: 120 RON / 60 min | 170 RON / 90 min
+                </p>
+                <p style="margin-top: 15px;">
+                    <a href="mailto:contact@neonstudio.ro?subject=Programare%20Sesiune" class="btn btn-purple">Programează prin Email</a>
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © 2025 Neon Studio — Toate sesiunile pot fi ținute online prin Zoom sau Discord.
+</footer>
+
+<button id="backToTop" aria-label="Mergi sus">⬆️</button>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Mulțumim! Mesajul tău a fost primit. Vom răspunde în cel mai scurt timp.');
+        this.reset();
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    hamburger?.addEventListener('click', () => nav.classList.toggle('show'));
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        backBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backBtn?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+
+</body>
+</html>

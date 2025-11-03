@@ -1,8 +1,7 @@
 # Dobrisan-Andrei-George-Proiect
-## dfghjbknlm,
+## G,
 * Acasa
 * Login
 * Portofoliu
-* Beat-uri
-* Tutoriale
+* Plugins
 * Contact

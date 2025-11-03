@@ -1,0 +1,401 @@
+/* === Reset & Variabile === */
+:root {
+    --neon-blue: #00aaff;
+    --neon-cyan: #00ffff;
+    --neon-purple: #9d00ff;
+    --neon-pink: #ff00c1;
+    --dark-bg: #0a0f1f;
+    --darker-bg: #001d3d;
+    --card-bg: #111828;
+    --text-light: #f0f4ff;
+    --text-gray: #d0d8e8;
+    --border-light: rgba(0, 170, 255, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, var(--dark-bg), var(--darker-bg));
+    color: var(--text-light);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* === Fonturi === */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700&display=swap');
+
+/* === Layout === */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* === Header === */
+header {
+    background: rgba(0, 0, 0, 0.88);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.7em;
+    font-weight: 700;
+    color: var(--neon-blue);
+    text-shadow: 0 0 6px rgba(0, 170, 255, 0.6);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.02em;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: color 0.25s, background 0.25s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--neon-cyan);
+    background: rgba(0, 170, 255, 0.1);
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 26px;
+    height: 3px;
+    background: var(--neon-blue);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* === Sections === */
+.section {
+    padding: 70px 0;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-cyan);
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: var(--neon-blue);
+    margin: 12px auto;
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-gray);
+    max-width: 750px;
+    margin: 0 auto 40px;
+    font-size: 1.15em;
+    font-weight: 400;
+}
+
+/* === Buttons === */
+.btn {
+    padding: 13px 34px;
+    font-size: 1.05em;
+    font-weight: 600;
+    background: transparent;
+    color: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Exo 2', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: var(--neon-blue);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 170, 255, 0.5);
+}
+
+.btn-purple {
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
+}
+.btn-purple:hover {
+    background: var(--neon-purple);
+    box-shadow: 0 6px 20px rgba(157, 0, 255, 0.5);
+}
+
+/* === Cards === */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(0, 170, 255, 0.15);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 170, 255, 0.6);
+}
+
+.card h3 {
+    color: var(--neon-blue);
+    margin: 16px 0 12px;
+    font-size: 1.45em;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.card p {
+    color: var(--text-gray);
+    margin: 12px 0;
+    font-size: 1.02em;
+    line-height: 1.6;
+}
+
+/* === Plugin card === */
+.plugin-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+}
+
+.plugin-logo {
+    height: 70px;
+    margin: 0 auto 20px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+
+.plugin-link {
+    margin-top: auto;
+    padding: 10px;
+    background: rgba(157, 0, 255, 0.15);
+    border-radius: 6px;
+    color: var(--neon-purple);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+    display: inline-block;
+    width: fit-content;
+    margin: 15px auto 0;
+}
+
+.plugin-link:hover {
+    background: rgba(157, 0, 255, 0.3);
+    color: white;
+}
+
+/* === Audio player === */
+audio {
+    width: 100%;
+    margin-top: 15px;
+    padding: 8px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
+}
+
+/* === Contact form & info === */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.contact-info h3,
+.appointment-info h3 {
+    color: var(--neon-cyan);
+    margin-bottom: 18px;
+    font-size: 1.5em;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.contact-info p,
+.appointment-info p {
+    margin: 10px 0;
+    color: var(--text-gray);
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-info p::before,
+.appointment-info p::before {
+    content: "•";
+    color: var(--neon-blue);
+    margin-right: 12px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--neon-cyan);
+    font-weight: 600;
+    font-size: 1.05em;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--neon-blue);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.05em;
+}
+
+.form-group textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    background: rgba(0, 0, 0, 0.88);
+    color: #aab6d1;
+    font-size: 1em;
+    margin-top: auto;
+    border-top: 1px solid rgba(0, 170, 255, 0.2);
+}
+
+/* === Back to top === */
+#backToTop {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 52px;
+    height: 52px;
+    font-size: 1.4em;
+    background: var(--neon-blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    background: var(--neon-cyan);
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 20px;
+        border-radius: 12px;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+        z-index: 999;
+    }
+
+    nav.show ul {
+        display: flex;
+    }
+
+    .section-title {
+        font-size: 1.9em;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

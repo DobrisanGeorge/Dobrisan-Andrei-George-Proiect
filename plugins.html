@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Cele mai bune pluginuri VST pentru producători muzicali în 2025: Serum, Omnisphere, Ozone, FabFilter și altele.">
+    <title>Neon Studio - Pluginuri Esențiale</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body id="top">
+
+<header>
+    <div class="container header-content">
+        <a href="index.html" class="logo">NEON STUDIO</a>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="portofoliu.html">Portofoliu</a></li>
+                <li><a href="plugins.html" class="active">Plugins</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Meniu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Pluginuri Esențiale 2025</h2>
+            <p class="section-subtitle">
+                Selectate de producători profesioniști pentru workflow eficient și sunet de top.
+            </p>
+
+            <div class="card-grid">
+                <div class="card plugin-card">
+                    <img src="https://placehold.co/150x70/00aaff/ffffff?text=Serum" alt="Serum by Xfer" class="plugin-logo">
+                    <h3>Serum</h3>
+                    <p>Wavetable synth-ul #1 în producția EDM și electronică modernă. Interfață intuitivă, modulație avansată, calitate de sunet impecabilă.</p>
+                    <a href="https://xferrecords.com/products/serum" target="_blank" class="plugin-link">Site Oficial</a>
+                </div>
+                <div class="card plugin-card">
+                    <img src="https://placehold.co/150x70/9d00ff/ffffff?text=Omnisphere" alt="Omnisphere" class="plugin-logo">
+                    <h3>Omnisphere 2</h3>
+                    <p>Cea mai vastă bibliotecă de sunete pentru compozitori și producători. Include sunete cinematice, electronice și instrumente reale.</p>
+                    <a href="https://www.spectrasonics.net/products/omnisphere/" target="_blank" class="plugin-link">Site Oficial</a>
+                </div>
+                <div class="card plugin-card">
+                    <img src="https://placehold.co/150x70/00ffff/000000?text=Ozone" alt="Ozone 11" class="plugin-logo">
+                    <h3>Ozone 11</h3>
+                    <p>Suită completă de mastering cu AI integrat. Ideal pentru finalizarea pieselor pentru distribuție digitală.</p>
+                    <a href="https://www.izotope.com/en/products/ozone.html" target="_blank" class="plugin-link">Site Oficial</a>
+                </div>
+                <div class="card plugin-card">
+                    <img src="https://placehold.co/150x70/00aaff/ffffff?text=FabFilter" alt="FabFilter Pro-Q 3" class="plugin-logo">
+                    <h3>FabFilter Pro-Q 3</h3>
+                    <p>Equalizerul preferat de inginerii de sunet. Spectru spectral în timp real, match EQ și dynamic EQ.</p>
+                    <a href="https://www.fabfilter.com/products/pro-q-3-equalizer-plug-in" target="_blank" class="plugin-link">Site Oficial</a>
+                </div>
+                <div class="card plugin-card">
+                    <img src="https://placehold.co/150x70/ff00c1/ffffff?text=Valhalla" alt="Valhalla VintageVerb" class="plugin-logo">
+                    <h3>Valhalla VintageVerb</h3>
+                    <p>Reverb-ul cu cel mai bun raport calitate/preț. Simulează echipamente clasice din anii '70-'80.</p>
+                    <a href="https://valhalladsp.com/shop/reverb/valhalla-vintage-verb/" target="_blank" class="plugin-link">Site Oficial</a>
+                </div>
+                <div class="card plugin-card">
+                    <img src="https://placehold.co/150x70/00aaff/ffffff?text=Kontakt" alt="Kontakt" class="plugin-logo">
+                    <h3>Kontakt 7</h3>
+                    <p>Platforma standard pentru instrumente virtuale. Biblioteci orchestral, pian, synth și multe altele.</p>
+                    <a href="https://www.native-instruments.com/en/products/komplete/samplers/kontakt-7/" target="_blank" class="plugin-link">Site Oficial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © 2025 Neon Studio — Recomandări bazate pe experiență profesională.
+</footer>
+
+<button id="backToTop" aria-label="Mergi sus">⬆️</button>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    hamburger?.addEventListener('click', () => nav.classList.toggle('show'));
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        backBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backBtn?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+
+</body>
+</html>

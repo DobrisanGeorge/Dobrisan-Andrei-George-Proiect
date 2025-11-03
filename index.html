@@ -1,77 +1,137 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acasă - BeatMaster</title>
-    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Neon Studio – Ghid profesional pentru producători muzicali. Pluginuri, tutoriale, portofoliu și sesiuni de producție.">
+    <title>Neon Studio - Ghid pentru Producători Muzicali</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body id="top">
 
-    <!-- Header cu logo și meniu -->
-    <header>
-        <div class="logo">🎵 BeatMaster</div>
-        <nav>
+<header>
+    <div class="container header-content">
+        <a href="index.html" class="logo">NEON STUDIO</a>
+        <nav id="mainNav">
             <ul>
-                <li><a href="index.html">Acasă</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Portofoliu</a></li>
-                <li><a href="#">Beat-uri</a></li>
-                <li><a href="#">Tutoriale</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.html" class="active">Acasă</a></li>
+                <li><a href="portofoliu.html">Portofoliu</a></li>
+                <li><a href="plugins.html">Plugins</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-    </header>
+        <button class="hamburger" id="hamburger" aria-label="Meniu de navigare">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
 
-    <!-- Banner principal -->
-    <section class="banner">
-        <h1>Bine ai venit în lumea BeatMaster!</h1>
-        <p>Explorează muzica, beat-urile și tutorialele pentru producători.</p>
-        <button>Descoperă mai mult</button>
-    </section>
-
-    <!-- Secțiune "Despre noi" -->
-    <section class="about">
-        <h2>Despre BeatMaster</h2>
-        <p>
-            Suntem o echipă pasionată de producție muzicală, beat-making și sound design.  
-            Scopul nostru este să oferim resurse, inspirație și tutoriale pentru orice producător aspirant sau profesionist.
-        </p>
-    </section>
-
-    <!-- Secțiune "Servicii" -->
-    <section class="services">
-        <h2>Ce oferim</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Creare beat-uri</h3>
-                <p>Beat-uri personalizate pentru hip-hop, trap, electronic și multe altele.</p>
-            </div>
-            <div class="card">
-                <h3>Sound design</h3>
-                <p>Sunete unice, preset-uri și instrumente virtuale pentru producții profesioniste.</p>
-            </div>
-            <div class="card">
-                <h3>Tutoriale</h3>
-                <p>Ghiduri pas cu pas pentru producători: mixaj, mastering și producție muzicală.</p>
+<main>
+    <section class="section" style="background: linear-gradient(135deg, var(--dark-bg), var(--darker-bg)); border-radius: 16px; margin: 25px; box-shadow: 0 8px 30px rgba(0,0,0,0.6);">
+        <div class="container">
+            <h1 class="section-title" style="color: white; font-size: 2.4em; text-shadow: 0 0 12px var(--neon-blue);">
+                Producție Muzicală de Nivel Profesionist
+            </h1>
+            <p class="section-subtitle">
+                Resurse, pluginuri verificate și expertiză practică pentru producătorii moderni – de la începători la avansați.
+            </p>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="plugins.html" class="btn">Descoperă Pluginuri Esențiale</a>
+                <a href="contact.html" class="btn btn-purple" style="margin-left: 15px;">Programează o Sesiune</a>
             </div>
         </div>
     </section>
 
-    <!-- Secțiune Newsletter -->
-    <section class="newsletter">
-        <h2>Abonează-te la newsletter</h2>
-        <form>
-            <input type="text" placeholder="Nume complet" required>
-            <input type="email" placeholder="Email" required>
-            <button type="submit">Abonează-mă</button>
-        </form>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">De Ce Neon Studio?</h2>
+            <p class="section-subtitle">
+                Suntem o comunitate de ingineri de sunet și producători cu peste 10 ani de experiență în industrii muzicale internaționale.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Expertiză Verificată</h3>
+                    <p>Toate recomandările noastre provin din proiecte reale – de la hituri radio la coloane sonore pentru film.</p>
+                </div>
+                <div class="card">
+                    <h3>Pluginuri Testate</h3>
+                    <p>Fiecare plugin listat a fost folosit în producții profesionale. Nu promovăm produse neprobate.</p>
+                </div>
+                <div class="card">
+                    <h3>Workflow Optimizat</h3>
+                    <p>Învăță metode moderne de producție care economisesc timp și îmbunătățesc calitatea sunetului.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 BeatMaster. Toate drepturile rezervate.</p>
-    </footer>
+    <section class="section" style="background: rgba(0, 10, 20, 0.4);">
+        <div class="container">
+            <h2 class="section-title">Servicii Oferte</h2>
+            <p class="section-subtitle">
+                Oferim sprijin complet pentru producătorii independenți.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Consultanță Producție</h3>
+                    <p>Sesiuni individuale pentru îmbunătățirea workflow-ului, mixajului sau structurii melodiilor.</p>
+                </div>
+                <div class="card">
+                    <h3>Mastering Profesionist</h3>
+                    <p>Finalizare audio pentru lansări pe platforme digitale (Spotify, Apple Music, etc.).</p>
+                </div>
+                <div class="card">
+                    <h3>Sound Design Custom</h3>
+                    <p>Creăm sunete unice pentru producții EDM, hip-hop sau jocuri video.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="contact.html" class="btn btn-purple">Programează o Consultanță Gratuită</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Resurse Recomandate</h2>
+            <p class="section-subtitle">
+                Accesează ghidurile noastre gratuite pentru a-ți ridica nivelul de producție.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Ghidul Beat-ului Perfect</h3>
+                    <p>Structură, armonie și groove – elementele esențiale ale unui beat captivant.</p>
+                </div>
+                <div class="card">
+                    <h3>Mixaj pentru Începători</h3>
+                    <p>Pas cu pas: cum să echilibrezi nivelurile, să folosești compresia și EQ-ul corect.</p>
+                </div>
+                <div class="card">
+                    <h3>Mastering DIY</h3>
+                    <p>Cum să finalizezi propriile piese fără echipamente scumpe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © 2025 Neon Studio — Ghid profesional pentru producători muzicali. Toate drepturile rezervate.
+</footer>
+
+<button id="backToTop" aria-label="Mergi sus">⬆️</button>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    hamburger.addEventListener('click', () => nav.classList.toggle('show'));
+    
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        backBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+</script>
 
 </body>
 </html>
