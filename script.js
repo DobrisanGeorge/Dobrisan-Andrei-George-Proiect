@@ -1,23 +1,17 @@
 /* === Functii Utilitare pentru Local Storage === */
 
-/**
- * Încarcă datele utilizatorului din Local Storage sau folosește date implicite.
- * Setează data de înscriere la data curentă dacă utilizatorul este nou.
- */
 function loadUserData() {
     const defaultData = {
         name: "Producător Necunoscut", 
         email: "contact@neonstudio.ro",
         daw: "Ableton Live",
         isLoggedIn: false,
-        // Setează data curentă la inițiere
         joinDate: new Date().toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })
     };
     try {
         const storedData = localStorage.getItem('neonStudioUser');
         let user = storedData ? JSON.parse(storedData) : defaultData;
 
-        // Asigură că joinDate există și este actualizat (sau setat la data curentă dacă lipsea)
         if (!user.joinDate) { 
             user.joinDate = defaultData.joinDate;
         }
@@ -29,9 +23,6 @@ function loadUserData() {
     }
 }
 
-/**
- * Salvează datele utilizatorului în Local Storage.
- */
 function saveUserData(data) {
     try {
         localStorage.setItem('neonStudioUser', JSON.stringify(data));
@@ -40,10 +31,56 @@ function saveUserData(data) {
     }
 }
 
+/**
+ * Actualizează meniul dropdown al utilizatorului pe baza stării de autentificare.
+ * Dacă e logat: afișează Profil, Setări, Logout.
+ * Dacă NU e logat: afișează doar Login / Creează Cont.
+ */
+function updateUserDropdown(user) {
+    const dropdown = document.getElementById('userDropdown');
+    if (!dropdown) return;
+
+    // Curăță conținutul existent
+    dropdown.innerHTML = '';
+
+    if (user.isLoggedIn) {
+        // Logat: Profil, Setări, Logout
+        dropdown.innerHTML = `
+            <a href="profil.html">Profil</a>
+            <a href="setari.html">Setări</a>
+            <a href="#" id="logoutLink">Logout</a>
+        `;
+        
+        // Adaugă event listener pentru Logout
+        document.getElementById('logoutLink')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Resetează starea și datele utilizatorului
+            user.isLoggedIn = false;
+            user.name = "Producător Necunoscut";
+            user.email = "contact@neonstudio.ro";
+            user.daw = "Ableton Live"; 
+            saveUserData(user);
+            
+            alert("Ai fost delogat cu succes.");
+            // Redirecționează către pagina principală sau de login
+            window.location.href = 'index.html'; 
+        });
+
+    } else {
+        // Nelogat: Login / Creează Cont
+        dropdown.innerHTML = `
+            <a href="login.html">Login / Creează Cont</a>
+        `;
+    }
+}
+
 /* === Functii Principale === */
 document.addEventListener('DOMContentLoaded', () => {
-    // Încarcă datele utilizatorului la pornirea paginii
     let user = loadUserData(); 
+
+    // !!! APEL NOU: Actualizează meniul utilizatorului imediat după încărcare
+    updateUserDropdown(user);
 
     // --- 1. Logica pentru Meniul Hamburger și Back-to-Top ---
     const hamburger = document.getElementById('hamburger');
@@ -66,14 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- 2. Logica pentru Login (login.html) ---
-    // Selectăm formularul de Login (fără ID-ul #register)
     const loginForm = document.querySelector('.form-box:not(#register) form'); 
     
     if (loginForm && window.location.pathname.endsWith('login.html')) {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Preluarea input-urilor (ordonarea 0 e email, 1 e password)
             const emailInput = this.querySelector('input[type="email"]')?.value;
             const passwordInput = this.querySelector('input[type="password"]')?.value; 
 
@@ -82,29 +117,24 @@ document.addEventListener('DOMContentLoaded', () => {
                  return;
             }
 
-            // LOGICĂ DE VERIFICARE SIMULATĂ:
-            // Verificăm dacă email-ul introdus este diferit de cel salvat și de cel default
+            // LOGICĂ DE VERIFICARE SIMULATĂ
             let isNewEmail = (user.email === "contact@neonstudio.ro" || user.email.toLowerCase() !== emailInput.toLowerCase());
             
-            // Dacă email-ul este nou ȘI utilizatorul nu era deja "logat" (simulat)
             if (isNewEmail && !user.isLoggedIn) {
                 alert("Acest email nu este înregistrat. Vă rugăm folosiți opțiunea 'Creează cont'.");
-                // Forțează trecerea la formularul de register
                 document.getElementById('show-register')?.click();
                 return;
             } 
             
-            // Simulare autentificare reușită: Actualizează datele contului existent/default
+            // Simulare autentificare reușită
             user.email = emailInput;
             let rawName = emailInput.split('@')[0];
-            // Curăță și capitalizează numele bazat pe email (ex: dinucatelusul -> Dinucatelusul)
             user.name = rawName.charAt(0).toUpperCase() + rawName.slice(1).replace(/[._-]/g, ' '); 
             user.isLoggedIn = true;
             
             saveUserData(user);
             alert(`Autentificare reușită! Bine ai revenit, ${user.name}.`);
             
-            // Redirecționare
             window.location.href = 'profil.html';
         });
     }
@@ -115,14 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
          registerForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Preluarea input-urilor
             const nameInput = this.querySelector('input[type="text"]')?.value;
             const emailInput = this.querySelector('input[type="email"]')?.value;
 
-            // Crearea contului nou și setarea datelor
             user.name = nameInput;
             user.email = emailInput;
-            user.daw = "FL Studio"; // DAW default la înregistrare
+            user.daw = "FL Studio";
             user.joinDate = new Date().toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' });
             user.isLoggedIn = true;
             
@@ -133,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Logica pentru Login/Register Toggle (Mutați din HTML) ---
+    // --- Logica pentru Login/Register Toggle (Rămâne neschimbată) ---
     const showRegister = document.getElementById('show-register');
     const showLogin = document.getElementById('show-login');
     const registerBox = document.getElementById('register');
@@ -156,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 4. Logica pentru Setări (setari.html) ---
     const settingsForm = document.getElementById('settingsForm');
     if (settingsForm) {
-        // Populează câmpurile de input cu datele salvate
         document.getElementById('full-name').value = user.name;
         document.getElementById('pref-daw').value = user.daw;
         
@@ -166,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const newName = document.getElementById('full-name').value;
             const newDAW = document.getElementById('pref-daw').value;
             
-            // Actualizarea Local Storage
             user.name = newName;
             user.daw = newDAW;
             saveUserData(user);
@@ -179,7 +205,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- 5. Logica pentru Profil (profil.html) ---
     if (window.location.pathname.endsWith('profil.html')) {
-        // Actualizează elementele HTML cu datele salvate
         const profileTitleName = document.getElementById('profile-title-name');
         if (profileTitleName) profileTitleName.textContent = user.name;
         
