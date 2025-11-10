@@ -1,5 +1,5 @@
 # Dobrisan-Andrei-George-Proiect
-## G,
+## Neon Studio,
 * Acasa
 * Login
 * Portofoliu

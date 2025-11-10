@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Studio - Setări Cont</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+
+<header>
+    <div class="container header-content">
+        <a href="index.html" class="logo">NEON STUDIO</a>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="portofoliu.html">Portofoliu</a></li>
+                <li><a href="plugins.html">Plugins</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Meniu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="user-icon-container">
+            <div class="user-icon">👤</div>
+            <div class="user-dropdown">
+                <a href="login.html">Login / Creează Cont</a>
+                <a href="profil.html">Profil</a>
+                <a href="setari.html" class="active">Setări</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="section">
+        <div class="container" style="max-width: 700px;">
+            <h2 class="section-title">Setări Cont</h2>
+            <p class="section-subtitle">
+                Actualizează-ți datele personale, notificările și preferințele de securitate.
+            </p>
+
+            <form id="settingsForm">
+                <div class="card" style="padding: 30px;">
+                    <h3 style="color: var(--neon-purple); margin-top: 0;">Date Personale</h3>
+                    <div class="form-group">
+                        <label for="full-name">Nume Complet</label>
+                        <input type="text" id="full-name" value=""> 
+                    </div>
+                    <div class="form-group">
+                        <label for="pref-daw">DAW Preferat (Pentru consultanță)</label>
+                         <select id="pref-daw">
+                            <option value="FL Studio">FL Studio</option>
+                            <option value="Ableton Live">Ableton Live</option>
+                            <option value="Logic Pro X">Logic Pro X</option>
+                            <option value="Pro Tools">Pro Tools</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 30px; margin-top: 30px;">
+                    <h3 style="color: var(--neon-purple); margin-top: 0;">Securitate & Parolă</h3>
+                    <div class="form-group">
+                        <label for="current-password">Parola Curentă</label>
+                        <input type="password" id="current-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">Parola Nouă</label>
+                        <input type="password" id="new-password">
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <button type="submit" class="btn btn-purple">Salvează Modificările</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © 2025 Neon Studio — Setări actualizate cu succes.
+</footer>
+
+<button id="backToTop" aria-label="Mergi sus">⬆️</button>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -24,6 +24,10 @@ body {
     color: var(--text-light);
     line-height: 1.7;
     overflow-x: hidden;
+    /* Imbunatatire Layout */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* === Fonturi === */
@@ -69,6 +73,8 @@ nav ul {
     display: flex;
     gap: 24px;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
@@ -115,6 +121,56 @@ nav ul li a.active {
 }
 .hamburger.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* === User Icon (Meniu Dropdown) === */
+.user-icon-container {
+    position: relative;
+    cursor: pointer;
+    margin-left: 24px;
+    z-index: 1010; 
+}
+
+.user-icon {
+    font-size: 1.5em;
+    color: var(--neon-blue);
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
+    z-index: 900;
+}
+
+.user-dropdown a {
+    display: block;
+    padding: 8px 15px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.user-dropdown a:hover,
+.user-dropdown a.active {
+    background: rgba(0, 170, 255, 0.1);
+    color: var(--neon-cyan);
+}
+
+.user-icon-container:hover .user-dropdown {
+    display: block;
+}
+
+/* === Main Content === */
+main {
+    flex-grow: 1;
 }
 
 /* === Sections === */
@@ -220,6 +276,7 @@ nav ul li a.active {
     line-height: 1.6;
 }
 
+
 /* === Plugin card === */
 .plugin-card {
     display: flex;
@@ -264,7 +321,15 @@ audio {
     border: 1px solid var(--border-light);
 }
 
-/* === Contact form & info === */
+/* Stil pentru titlul din portofoliu */
+.section-text-center {
+    text-align: center;
+    color: var(--text-gray);
+    margin-bottom: 30px;
+}
+
+
+/* === Contact form, Profil & Setari Info === */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -278,6 +343,13 @@ audio {
     margin-bottom: 18px;
     font-size: 1.5em;
     font-family: 'Orbitron', sans-serif;
+}
+
+/* Stil adaugat pentru titlul secundar in Profil */
+.contact-info h4 {
+    color: var(--neon-blue);
+    font-weight: 600;
+    margin: 10px 0;
 }
 
 .contact-info p,
@@ -319,11 +391,109 @@ audio {
     color: white;
     font-family: 'Exo 2', sans-serif;
     font-size: 1.05em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 .form-group textarea {
     min-height: 140px;
     resize: vertical;
+}
+
+/* === LOGIN / REGISTER STYLES === */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+    flex-grow: 1;
+}
+
+.form-box {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin: 20px;
+    border: 1px solid var(--border-light);
+}
+
+.form-box h2 {
+    color: var(--neon-purple);
+    margin-bottom: 30px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8em;
+}
+
+.form-box form input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--neon-purple);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.05em;
+}
+
+.form-box form input:focus {
+    outline: none;
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px rgba(255, 0, 193, 0.5);
+}
+
+/* Butonul de submit din form-box utilizează acum stilul btn-purple de bază */
+.form-box button {
+    width: 100%;
+    margin-top: 10px;
+    /* Reutilizam stilul .btn */
+    padding: 13px 34px;
+    font-size: 1.05em;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Exo 2', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    
+    background: var(--neon-purple);
+    color: white;
+    border: none;
+}
+.form-box button:hover {
+    background: var(--neon-pink);
+    box-shadow: 0 6px 20px rgba(255, 0, 193, 0.5);
+    transform: translateY(-3px);
+}
+
+.form-box p {
+    margin-top: 25px;
+    color: var(--text-gray);
+}
+
+.form-box p a {
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.form-box p a:hover {
+    color: var(--neon-cyan);
+    text-decoration: underline;
 }
 
 /* === Footer === */
@@ -364,8 +534,9 @@ footer {
 /* === Responsive === */
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column;
-        gap: 18px;
+        flex-direction: row;
+        gap: 0;
+        padding: 16px 15px;
     }
 
     .hamburger {
@@ -378,12 +549,21 @@ footer {
         background: rgba(0, 0, 0, 0.95);
         padding: 20px;
         border-radius: 12px;
-        width: 100%;
+        width: 90%;
         position: absolute;
-        top: 100%;
-        left: 0;
+        top: 70px;
+        left: 50%;
+        transform: translateX(-50%);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
         z-index: 999;
+    }
+    
+    nav ul li {
+        margin: 8px 0;
+    }
+
+    nav.show {
+        display: block;
     }
 
     nav.show ul {
@@ -397,5 +577,13 @@ footer {
     .btn {
         width: 100%;
         margin: 10px 0;
+    }
+
+    .user-icon-container {
+        margin-left: 15px;
+    }
+    
+    .form-container {
+        padding: 30px 10px;
     }
 }

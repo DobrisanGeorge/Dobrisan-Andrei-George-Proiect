@@ -4,73 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login / Register - Neon Studio</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top">
 
 <header>
-    <div class="logo">NEON STUDIO</div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Acasă</a></li>
-            <li><a href="portofoliu.html">Portofoliu</a></li>
-            <li><a href="store.html">Store</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html" class="active">Login</a></li>
-        </ul>
-    </nav>
-    <div class="user-icon-container">
-        <div class="user-icon">👤</div>
-        <div class="user-dropdown">
-            <a href="#">Profil</a>
-            <a href="#">Setări</a>
-            <a href="#">Logout</a>
+    <div class="container header-content">
+        <a href="index.html" class="logo">NEON STUDIO</a>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="portofoliu.html">Portofoliu</a></li>
+                <li><a href="plugins.html">Plugins</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Meniu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="user-icon-container">
+            <div class="user-icon">👤</div>
+            <div class="user-dropdown">
+                <a href="login.html" class="active">Login / Creează Cont</a>
+                <a href="profil.html">Profil</a>
+                <a href="setari.html">Setări</a>
+                <a href="#">Logout</a>
+            </div>
         </div>
     </div>
 </header>
 
-<section class="form-container">
-    <div class="form-box">
-        <h2>Autentificare</h2>
-        <form>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Parolă" required>
-            <button type="submit">Login</button>
-        </form>
-        <p>Nu ai cont? <a href="#register" id="show-register">Creează cont</a></p>
-    </div>
+<main>
+    <section class="form-container">
+        <div class="form-box">
+            <h2>Autentificare</h2>
+            <form>
+                <label for="login-email" style="display:none;">Email</label>
+                <input type="email" id="login-email" placeholder="Email" required>
 
-    <div class="form-box" id="register" style="display:none;">
-        <h2>Creare cont</h2>
-        <form>
-            <input type="text" placeholder="Nume complet" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Parolă" required>
-            <button type="submit">Înregistrează-te</button>
-        </form>
-        <p>Ai deja cont? <a href="#login" id="show-login">Autentificare</a></p>
-    </div>
-</section>
+                <label for="login-password" style="display:none;">Parolă</label>
+                <input type="password" id="login-password" placeholder="Parolă" required>
+
+                <button type="submit" class="btn btn-purple">Login</button>
+            </form>
+            <p>Nu ai cont? <a href="#" id="show-register">Creează cont</a></p>
+        </div>
+
+        <div class="form-box" id="register" style="display:none;">
+            <h2>Creare cont</h2>
+            <form>
+                <label for="register-name" style="display:none;">Nume complet</label>
+                <input type="text" id="register-name" placeholder="Nume complet" required>
+
+                <label for="register-email" style="display:none;">Email</label>
+                <input type="email" id="register-email" placeholder="Email" required>
+
+                <label for="register-password" style="display:none;">Parolă</label>
+                <input type="password" id="register-password" placeholder="Parolă" required>
+
+                <button type="submit" class="btn btn-purple">Înregistrează-te</button>
+            </form>
+            <p>Ai deja cont? <a href="#" id="show-login">Autentificare</a></p>
+        </div>
+    </section>
+</main>
 
 <footer>
     © 2025 Neon Studio — Toate drepturile rezervate.
 </footer>
 
-<script>
-    const showRegister = document.getElementById('show-register');
-    const showLogin = document.getElementById('show-login');
-    const registerBox = document.getElementById('register');
-    const loginBox = document.querySelector('.form-box:not(#register)');
+<button id="backToTop" aria-label="Mergi sus">⬆️</button>
 
-    showRegister.addEventListener('click', () => {
-        loginBox.style.display = 'none';
-        registerBox.style.display = 'block';
-    });
-    showLogin.addEventListener('click', () => {
-        loginBox.style.display = 'block';
-        registerBox.style.display = 'none';
-    });
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

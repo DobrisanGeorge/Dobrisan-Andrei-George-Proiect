@@ -18,16 +18,25 @@
                 <li><a href="portofoliu.html">Portofoliu</a></li>
                 <li><a href="plugins.html">Plugins</a></li>
                 <li><a href="contact.html">Contact</a></li>
-            </ul>
+                </ul>
         </nav>
         <button class="hamburger" id="hamburger" aria-label="Meniu de navigare">
             <span></span><span></span><span></span>
         </button>
+        <div class="user-icon-container">
+            <div class="user-icon">👤</div>
+            <div class="user-dropdown">
+                <a href="login.html">Login / Creează Cont</a>
+                <a href="profil.html">Profil</a>
+                <a href="setari.html">Setări</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
     </div>
 </header>
 
 <main>
-    <section class="section" style="background: linear-gradient(135deg, var(--dark-bg), var(--darker-bg)); border-radius: 16px; margin: 25px; box-shadow: 0 8px 30px rgba(0,0,0,0.6);">
+    <section class="section hero-section" style="background: linear-gradient(135deg, var(--dark-bg), var(--darker-bg)); border-radius: 16px; margin: 25px; box-shadow: 0 8px 30px rgba(0,0,0,0.6);">
         <div class="container">
             <h1 class="section-title" style="color: white; font-size: 2.4em; text-shadow: 0 0 12px var(--neon-blue);">
                 Producție Muzicală de Nivel Profesionist
@@ -121,17 +130,6 @@
 
 <button id="backToTop" aria-label="Mergi sus">⬆️</button>
 
-<script>
-    const hamburger = document.getElementById('hamburger');
-    const nav = document.getElementById('mainNav');
-    hamburger.addEventListener('click', () => nav.classList.toggle('show'));
-    
-    const backBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        backBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-    backBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
