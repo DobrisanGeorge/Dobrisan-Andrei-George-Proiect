@@ -24,7 +24,6 @@ body {
     color: var(--text-light);
     line-height: 1.7;
     overflow-x: hidden;
-    /* Imbunatatire Layout */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -359,6 +358,11 @@ audio {
     display: flex;
     align-items: flex-start;
 }
+/* Stilizarea datelor din profil (Nume, Email, etc.) */
+.contact-info p span {
+    font-weight: 600;
+    color: var(--text-light);
+}
 
 .contact-info p::before,
 .appointment-info p::before {
@@ -453,11 +457,8 @@ audio {
     box-shadow: 0 0 10px rgba(255, 0, 193, 0.5);
 }
 
-/* Butonul de submit din form-box utilizează acum stilul btn-purple de bază */
 .form-box button {
     width: 100%;
-    margin-top: 10px;
-    /* Reutilizam stilul .btn */
     padding: 13px 34px;
     font-size: 1.05em;
     font-weight: 600;
@@ -468,6 +469,7 @@ audio {
     text-decoration: none;
     display: inline-block;
     text-align: center;
+    margin-top: 10px;
     
     background: var(--neon-purple);
     color: white;
@@ -586,4 +588,43 @@ footer {
     .form-container {
         padding: 30px 10px;
     }
+}
+/* Adaugă aceste stiluri la sfârșitul fișierului style.css */
+
+.beat-card {
+    /* Asigură că cardul conține bine imaginea și elementele */
+    display: flex;
+    flex-direction: column;
+    text-align: left; 
+    padding: 20px;
+}
+
+.beat-cover {
+    width: 100%;
+    /* Asigură un aspect de copertă pătrată (1:1) */
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    /* Efect Neon subtil pe copertă */
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.3); 
+    transition: transform 0.3s;
+}
+
+.beat-card:hover .beat-cover {
+    /* Mărire ușoară la hover pe card */
+    transform: scale(1.02);
+}
+
+.beat-card h3 {
+    margin-top: 0; 
+}
+
+.audio-player {
+    width: 100%;
+    margin-top: 15px;
+    padding: 8px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
 }
